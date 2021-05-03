@@ -63,3 +63,7 @@ export default [
     description: 'Lighthouse Coast Sea',
   },
 ];
+
+
+const closeButton = document.getElementsByClassName('lightbox__button')
+closeButton.addEventListener('click', closeButton)
