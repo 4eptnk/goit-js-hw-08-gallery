@@ -24,15 +24,18 @@ const closeButton = document.querySelector(".lightbox__button");
 const popUp = document.querySelector(".js-lightbox");
 const backDrop = document.querySelector(".lightbox__overlay");
 const lightBoxImage = document.querySelector(".lightbox__image");
-const openLink = document.querySelector(".js-gallery");
-openLink.addEventListener("click", (e) => {
-  e.preventDefault();
-  const imgOriginal = e.target.dataset.source;
+
+container.addEventListener("click", (e) => {
+  if (e.target.tagName !== "IMG") {
+    return;
+  }
+  const imgOriginal = e.target.getAttribute("data-source");
   const imgDescription = e.target.getAttribute("alt");
   lightBoxImage.setAttribute("src", imgOriginal);
   lightBoxImage.setAttribute("alt", imgDescription);
   popUp.classList.add("is-open");
   document.addEventListener("keydown", listener, false);
+  e.preventDefault();
 });
 
 function listener(e) {
